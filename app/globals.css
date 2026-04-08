@@ -24,3 +24,36 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Isso força a altura em todos os níveis do Swiper sem precisar de style jsx */
+.full-screen-slider, 
+.full-screen-slider .swiper,
+.full-screen-slider .swiper-wrapper,
+.full-screen-slider .swiper-slide {
+  height: 100dvh !important;
+  min-height: 100vh !important;
+}
+
+.full-screen-slider .swiper-pagination-bullet {
+  background: white !important;
+  opacity: 0.5;
+  width: 12px;
+  height: 12px;
+  transition: all 0.3s ease;
+}
+
+.full-screen-slider .swiper-pagination-bullet-active {
+  background: #6EC1E4 !important;
+  opacity: 1;
+  transform: scale(1.2);
+}
+/* No seu globals.css */
+
+.full-screen-slider .hero-pagination {
+  /* Usamos bottom para dar a base e translateY para 'empurrar' para cima */
+  bottom: 90px !important; 
+  transform: translateX(-0%) translateY(-40px) !important;
+  
+  /* Garante que o container da paginação não tenha altura fixa que a prenda embaixo */
+  height: auto !important;
+  padding-bottom: 0 !important;
+}
