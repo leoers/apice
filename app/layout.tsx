@@ -5,11 +5,12 @@ import "swiper/css/navigation";
 // @ts-ignore
 import "swiper/css/pagination";
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google"; // Alterado para Roboto
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import { TopBar } from "@/componentes/topBar";
 import { Navbar } from "@/componentes/menu";
 import { Footer } from "@/componentes/footer";
+import { GoogleAnalytics } from '@next/third-parties/google'; // Importação oficial
 
 // Configuração da fonte Roboto Global
 const roboto = Roboto({ 
@@ -78,7 +79,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      {/* Aplicando a classe da Roboto e antialiased para melhor leitura */}
       <body className={`${roboto.className} antialiased`} suppressHydrationWarning>
         <TopBar />
         
@@ -92,6 +92,8 @@ export default function RootLayout({
 
         <Footer />
         
+        {/* Google Analytics inserido aqui com seu ID G-L2WDTQCC6Y */}
+        <GoogleAnalytics gaId="G-L2WDTQCC6Y" />
       </body>
     </html>
   );
