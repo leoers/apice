@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   description: "Especialista em administração de condomínios, portaria remota e presencial. Segurança e eficiência para seu patrimônio.",
   keywords: ["administração de condomínios", "portaria remota", "serviços prediais", "Ápice"],
   alternates: {
-    canonical: "/",
+    canonical: "./",
   },
   robots: {
     index: true,
