@@ -78,6 +78,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <link rel="stylesheet" href="https://s0.wp.com/wp-includes/css/dist/block-library/style.min.css" />
       </head>
       <body className={`${roboto.className} antialiased`} suppressHydrationWarning>
         <TopBar />

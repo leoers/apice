@@ -57,3 +57,127 @@ body {
   height: auto !important;
   padding-bottom: 0 !important;
 }
+
+/* --- DIAGRAMAÇÃO NATIVA DO WORDPRESS (GUTENBERG) --- */
+
+/* Ajuste básico para limpar elementos flutuantes (como imagens alinhadas à esquerda/direita) */
+.wordpress-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Sistema de Colunas do WordPress */
+.wordpress-content .wp-block-columns {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  margin-bottom: 1.75rem !important;
+}
+
+/* Força as colunas a ficarem lado a lado apenas em telas maiores que tablet */
+@media (min-width: 782px) {
+  .wordpress-content .wp-block-columns {
+    flex-wrap: nowrap !important;
+  }
+}
+
+.wordpress-content .wp-block-column {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+/* Proporções específicas de colunas quando definidas no WP (ex: 33%, 50%, 66%) */
+@media (min-width: 782px) {
+  .wordpress-content .wp-block-column[style*="flex-basis"] {
+    flex-grow: 0 !important;
+  }
+}
+
+/* Alinhamento de Imagens e Blocos */
+.wordpress-content .aligncenter {
+  display: block;
+  margin: 2rem auto !important;
+  text-align: center;
+}
+
+.wordpress-content .alignleft {
+  float: left;
+  margin-right: 2rem !important;
+  margin-bottom: 1.5rem !important;
+  max-width: 50%;
+}
+
+.wordpress-content .alignright {
+  float: right;
+  margin-left: 2rem !important;
+  margin-bottom: 1.5rem !important;
+  max-width: 50%;
+}
+
+/* Bloco de Mídia e Texto lado a lado (Media & Text) */
+.wordpress-content .wp-block-media-text {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 2rem;
+  margin-bottom: 2rem !important;
+}
+
+@media (min-width: 600px) {
+  .wordpress-content .wp-block-media-text {
+    grid-template-columns: 50% 50%; /* Se não houver tamanho definido, divide ao meio */
+  }
+  .wordpress-content .wp-block-media-text.has-media-on-the-right {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+.wordpress-content .wp-block-media-text__media {
+  margin: 0 !important;
+}
+
+.wordpress-content .wp-block-media-text__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Galeria de Imagens do WordPress */
+.wordpress-content .wp-block-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0 !important;
+  list-style-type: none !important;
+  margin-bottom: 2rem !important;
+}
+
+.wordpress-content .wp-block-gallery .wp-block-image {
+  flex-grow: 1;
+  width: calc(50% - 0.5rem); /* Padrão de 2 colunas no mobile */
+  margin: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .wordpress-content .wp-block-gallery .wp-block-image {
+    width: calc(33.33% - 0.66rem); /* 3 colunas no desktop se houver imagens suficientes */
+  }
+}
+
+.wordpress-content .wp-block-gallery img {
+  width: 100% !important;
+  height: h-full !important;
+  object-fit: cover;
+}
+
+/* Espaçador nativo (Spacer) */
+.wordpress-content .wp-block-separator {
+  border: none;
+  border-bottom: 1px solid #E5E7EB !important;
+  margin: 3rem auto !important;
+  width: 100%;
+}
